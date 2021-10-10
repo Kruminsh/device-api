@@ -19,7 +19,7 @@ public class DeviceServiceImpl implements DeviceService {
     @Autowired
     private final DeviceRepository deviceRepository;
 
-    public DeviceServiceImpl(InMemoryDeviceRepository deviceRepository) {
+    public DeviceServiceImpl(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
     }
 

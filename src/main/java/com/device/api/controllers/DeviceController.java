@@ -19,7 +19,7 @@ public class DeviceController {
     @Autowired
     private final DeviceService deviceService;
 
-    public DeviceController(DeviceServiceImpl deviceService) {
+    public DeviceController(DeviceService deviceService) {
         this.deviceService = deviceService;
     }
 
