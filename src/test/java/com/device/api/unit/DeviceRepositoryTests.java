@@ -99,6 +99,7 @@ public class DeviceRepositoryTests {
 
     }
 
+    @Test
     public void findByNonExistentMacAddressReturnsNull() {
         DeviceRepository deviceRepository = new InMemoryDeviceRepository();
 
@@ -106,5 +107,25 @@ public class DeviceRepositoryTests {
 
         Device searchResult = deviceRepository.findByMacAddress("ca:22:16:2f:1b:0f");
         assertNull(searchResult);
+    }
+
+    @Test
+    public void devicesReturnedInCorrectOrder() {
+        DeviceRepository deviceRepository = new InMemoryDeviceRepository();
+
+        Device rootDevice1 = new Device("7ded.b437.ed1d", DeviceType.ACCESS_POINT);
+        Device childDevice1 = new Device("ca:22:16:2f:1b:0f", DeviceType.GATEWAY, rootDevice1);
+        Device rootDevice2 = new Device("ad-d6-dc-08-b9-7c", DeviceType.SWITCH);
+
+        deviceRepository.addDevice(rootDevice1);
+        deviceRepository.addDevice(childDevice1);
+        deviceRepository.addDevice(rootDevice2);
+
+        List<Device> allDevices = deviceRepository.getDevices();
+
+        DeviceType[] deviceTypes = DeviceType.values();
+        for(int i = 0; i < deviceTypes.length; i++) {
+            assertEquals(deviceTypes[i], allDevices.get(i).getDeviceType());
+        }
     }
 }

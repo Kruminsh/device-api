@@ -6,7 +6,6 @@ import com.device.api.model.response.RegisterResponse;
 import com.device.api.repository.InMemoryDeviceRepository;
 import com.device.api.services.DeviceService;
 import com.device.api.services.DeviceServiceImpl;
-import com.device.api.util.DeviceTopologyUtil;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
