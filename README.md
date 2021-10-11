@@ -3,7 +3,7 @@
 ### API built with
 * Java 8
 * Spring Boot 2.5.5
-* Build tool: Maven
+* Build tool: Maven (Wrapper included)
 
 ### API endpoints:
 * GET: **/device**  
