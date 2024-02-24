@@ -1,4 +1,5 @@
 # Network Device API
+REST API solution for Network Device registration and retrieval as part of online assessment.
 
 ### API built with
 * Java 8
